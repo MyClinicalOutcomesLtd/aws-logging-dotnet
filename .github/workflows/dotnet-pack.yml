@@ -21,7 +21,7 @@ jobs:
           dotnet-version: 2.1.x	
 
       - name: Pack
-        run: dotnet pack AWS.Logger.sln --configuration Release-CD
+        run: dotnet pack AWS.Logger.sln --configuration Release
 
       - name: Publish
         run: |
