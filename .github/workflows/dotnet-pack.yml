@@ -1,0 +1,31 @@
+name: dotnet-pack
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+      - "[0-9]+.[0-9]+.[0-9]+-dev-[0-9]+"
+      - "[0-9]+.[0-9]+.[0-9]+-rc[0-9]+"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+
+      - name: Setup .NET Core 2.1	
+        uses: actions/setup-dotnet@v1	
+        with:	
+          dotnet-version: 2.1.x	
+
+      - name: Pack
+        run: dotnet pack AWS.Logger.sln --configuration Release-CD
+
+      - name: Publish
+        run: |
+          dotnet nuget push "src\AWS.Logger.Core\bin\Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
+          dotnet nuget push "src\AWS.Logger.AspNetCore\bin\Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
