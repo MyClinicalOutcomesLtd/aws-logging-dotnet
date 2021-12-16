@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     
     <Description>An AWS SeriLog sink that records logging messages to Amazon CloudWatch Logs.</Description>
     <Authors>Amazon Web Services</Authors>

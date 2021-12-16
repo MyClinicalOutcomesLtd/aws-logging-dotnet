@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
 
     <PackageId>AWS.Logger.NLog</PackageId>
     <Description>An AWS NLog target that records logging messages to Amazon CloudWatch Logs.</Description>
