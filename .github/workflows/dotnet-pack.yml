@@ -25,7 +25,7 @@ jobs:
 
       - name: Publish
         run: |
-          dotnet nuget push "src\AWS.Logger.Core\bin\Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
-          dotnet nuget push "src\AWS.Logger.AspNetCore\bin\Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
+          dotnet nuget push "src/AWS.Logger.Core/bin/Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
+          dotnet nuget push "src/AWS.Logger.AspNetCore/bin/Release/*.nupkg" --source https://nuget.pkg.github.com/MyClinicalOutcomesLtd/index.json -k ${{ secrets.GITHUB_TOKEN }}
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
